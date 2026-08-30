@@ -1,0 +1,135 @@
+CRITICAL - 2025-08-23 16:04:01 --> ErrorException: Undefined array key 4
+[Method: GET, Route: entry/2LZM]
+in APPPATH/Views/entry.php on line 49.
+ 1 APPPATH/Views/entry.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 4', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 49)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Home.php(131): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Home->entry('2LZM')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:05:16 --> ErrorException: Undefined variable $info
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 42.
+ 1 APPPATH/Views/entry.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $info', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 42)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(16): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:05:47 --> ErrorException: Undefined variable $info
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 42.
+ 1 APPPATH/Views/entry.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $info', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 42)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(16): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:06:48 --> ErrorException: Undefined array key 10
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 53.
+ 1 APPPATH/Views/entry.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 10', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 53)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(18): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:06:57 --> ErrorException: Undefined array key 11
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 56.
+ 1 APPPATH/Views/entry.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 11', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 56)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(18): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:07:02 --> ErrorException: Undefined array key 13
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 58.
+ 1 APPPATH/Views/entry.php(58): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 13', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 58)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(18): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:07:06 --> ErrorException: Undefined array key 14
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 59.
+ 1 APPPATH/Views/entry.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 14', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 59)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(18): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:07:09 --> ErrorException: Undefined variable $total_results
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 69.
+ 1 APPPATH/Views/entry.php(69): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $total_results', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 69)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(18): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
+CRITICAL - 2025-08-23 20:07:37 --> ErrorException: Undefined variable $contacts
+[Method: GET, Route: pep-pro/1WRZ-B-A]
+in APPPATH/Views/entry.php on line 127.
+ 1 APPPATH/Views/entry.php(127): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $contacts', '/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php', 127)
+ 2 SYSTEMPATH/View/View.php(226): include('/Users/diego/Documents/GitHub/propedia26/app/Views/entry.php')
+ 3 SYSTEMPATH/View/View.php(229): CodeIgniter\View\View->{closure:CodeIgniter\View\View::render():223}()
+ 4 SYSTEMPATH/Common.php(1167): CodeIgniter\View\View->render('entry', [], true)
+ 5 APPPATH/Controllers/Entry.php(18): view('entry', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Entry->pep_pro('1WRZ-B-A')
+ 7 SYSTEMPATH/CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Entry))
+ 8 SYSTEMPATH/CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/diego/Documents/GitHub/propedia26/public/index.php')
