@@ -7,6 +7,14 @@
 
 <?= $this->section('conteudo') ?>
 
+<div class="alert alert-warning d-flex align-items-center gap-2 my-4" role="alert">
+  <i class="bi bi-exclamation-triangle-fill flex-shrink-0"></i>
+  <div>
+    This is a <strong>beta version</strong>. For the stable version, visit
+    <a href="https://bioinfo.dcc.ufmg.br/propedia26" class="alert-link">Propedia 26 <i class="bi bi-box-arrow-up-right"></i></a>.
+  </div>
+</div>
+
 <div class="container col-xxl-10 px-2 py-0">
   <div class="row flex-lg-row-reverse align-items-center g-5 py-4">
     <div class="col-10 col-sm-8 col-md-6">
