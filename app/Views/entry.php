@@ -27,7 +27,7 @@
                                 <li><b class="ms-3">Download</b></li>
                                 <hr>
                                 <li><a class="dropdown-item mt-2" href="<?php echo base_url(); ?>data/db/contacts/<?= $id ?>/<?= substr($id,0,4) ?>_contacts.csv">Contacts</a></li>
-                                <li><a class="dropdown-item" href="<?php echo base_url('/data/' . $db . '/pdb/' . $id[0] . '/' . $id . '.pdb'); ?>">PDB file</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('/data/' . $db . '/pdb/' . $id[0] . '/' . $id . '.cif'); ?>">mmCIF file</a></li>
                                 <hr>
                                 <li><a class="dropdown-item" href="<?php echo base_url('/data/' . $db . '/csv/' . $id[0] . '/' . $id . '.csv'); ?>">Complex data</a></li>
 
@@ -1529,7 +1529,7 @@
 
         if (!glviewerModal._modelLoaded) {
             const carrega = function(pdb) {
-                glviewerModal.addModel(pdb, 'pdb');
+                glviewerModal.addModel(pdb, 'cif');
                 glviewerModal._modelLoaded = true;
 
                 // Seletor de cadeias do painel
@@ -1552,7 +1552,7 @@
             if (moldata) {
                 carrega(moldata); // reaproveita o PDB ja baixado pelo viewer da pagina
             } else {
-                $.get('<?php echo base_url('/data/' . $db . '/pdb/' . $id[0] . '/' . $id . '.pdb'); ?>', carrega);
+                $.get('<?php echo base_url('/data/' . $db . '/pdb/' . $id[0] . '/' . $id . '.cif'); ?>', carrega);
             }
         }
 
@@ -2546,11 +2546,11 @@
     let moldata = null;
 
     $(() => {
-        const pdb_data = "<?php echo base_url('/data/' . $db . '/pdb/' . $id[0] . '/' . $id . '.pdb'); ?>";
+        const pdb_data = "<?php echo base_url('/data/' . $db . '/pdb/' . $id[0] . '/' . $id . '.cif'); ?>";
 
         $.get(pdb_data, function(d) {
             const data = d;
-            moldata = d; // guarda o PDB para o viewer do mapa de contatos
+            moldata = d; // guarda a estrutura (mmCIF) para o viewer do mapa de contatos
             // Cria viewer
             glviewer = $3Dmol.createViewer("pdb", {
                 defaultcolors: $3Dmol.rasmolElementColors
@@ -2558,7 +2558,7 @@
             glviewer.setBackgroundColor(0xffffff);
 
             // Adiciona modelo
-            const m = glviewer.addModel(data, "pdb");
+            const m = glviewer.addModel(data, "cif");
 
             // Cores e cadeias
             const colors = ["grey", "orangered", "deepskyblue", "green", "purple", "cyan"];
@@ -2890,7 +2890,7 @@
         // Carrega o modelo assim que o PDB estiver disponivel (lazy: pode ainda
         // estar baixando na primeira abertura do modal)
         if (!modalViewer._modelLoaded && moldata) {
-            modalViewer.addModel(moldata, 'pdb');
+            modalViewer.addModel(moldata, 'cif');
             styleWhole(modalViewer);
             modalViewer.zoomTo();
             modalViewer.render();

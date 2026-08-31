@@ -588,7 +588,7 @@
                             Run the script below in <a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab</a>
                             or any local Python environment (requires <code>pandas</code>). It keeps only the entries matching the filters
                             you selected above &mdash; click <strong>Apply filters</strong> to refresh it. The structures are organized as
-                            <code>pdb/&lt;first_char&gt;/&lt;ID&gt;.pdb</code>.
+                            <code>pdb/&lt;first_char&gt;/&lt;ID&gt;.cif</code> (mmCIF).
                         </p>
                         <div class="position-relative">
                             <button id="btnCopyPy" type="button" class="btn btn-sm btn-outline-secondary position-absolute top-0 end-0 m-2">
@@ -749,7 +749,7 @@
                     render: function(data, type, row) {
                         if (type !== 'display') { return data; }
                         const id = row[0];
-                        return `<a href="${BASE_URL}data/db/pdb/${id.charAt(0)}/${id}.pdb" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-title="Click to download the file: ${id}.pdb"><strong><i class="bi bi-download"></i></strong></a>`;
+                        return `<a href="${BASE_URL}data/db/pdb/${id.charAt(0)}/${id}.cif" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-title="Click to download the file: ${id}.cif"><strong><i class="bi bi-download"></i></strong></a>`;
                     }
                 }
             ],
@@ -885,12 +885,12 @@
             L.push('print(f"{len(selected)} complexes selected")');
             L.push('selected.to_csv("filtered_list.csv", index=False)');
             L.push('');
-            L.push('# --- Copy the matching structures (folder layout: pdb/<first_char>/<ID>.pdb) ---');
-            L.push('os.makedirs("filtered_pdb", exist_ok=True)');
+            L.push('# --- Copy the matching structures (folder layout: pdb/<first_char>/<ID>.cif) ---');
+            L.push('os.makedirs("filtered_cif", exist_ok=True)');
             L.push('for pid in selected["id"]:');
-            L.push('    src = os.path.join("pdb", pid[0], pid + ".pdb")');
+            L.push('    src = os.path.join("pdb", pid[0], pid + ".cif")');
             L.push('    if os.path.isfile(src):');
-            L.push('        shutil.copy(src, os.path.join("filtered_pdb", pid + ".pdb"))');
+            L.push('        shutil.copy(src, os.path.join("filtered_cif", pid + ".cif"))');
 
             return L.join('\n');
         };

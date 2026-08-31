@@ -123,7 +123,7 @@ selected">
       const chain_query = "<?= $chain ?>";
       document.querySelectorAll('input[name="compare"]').forEach(radio => {
          radio.addEventListener('click', function() {
-            let url = '<?= base_url("/data/db/pdb/") ?>' + this.value[0] + '/' + this.value + '.pdb';
+            let url = '<?= base_url("/data/db/pdb/") ?>' + this.value[0] + '/' + this.value + '.cif';
             let residues = this.getAttribute('data'); 
             residues = residues.split(',').map(Number);
             let cadeia_pep = this.value[5];
@@ -142,8 +142,8 @@ selected">
             });
             glviewer.setBackgroundColor(0xffffff);
 
-            // Adiciona modelo
-            const m = glviewer.addModel(data, "pqr");
+            // Adiciona modelo (estrutura da entrada = mmCIF)
+            const m = glviewer.addModel(data, "cif");
 
             // Cores e cadeias
             const colors = ["white", "orangered", "deepskyblue", "green", "purple", "cyan"];
@@ -234,7 +234,7 @@ selected">
       }
 
       load_subject(
-         '<?= base_url("/data/db/pdb/{$results[0]['COMPLEX NAME'][0]}/{$results[0]['COMPLEX NAME']}.pdb") ?>',
+         '<?= base_url("/data/db/pdb/{$results[0]['COMPLEX NAME'][0]}/{$results[0]['COMPLEX NAME']}.cif") ?>',
          '<?=$results[0]['SUBJECT ALIGNED RESIDUES']?>'.split(',').map(Number), // residues
          '<?=$results[0]['COMPLEX NAME'][5]?>' // chain
       ); // carrega o primeiro item por padrão

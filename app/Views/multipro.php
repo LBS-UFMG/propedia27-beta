@@ -666,8 +666,8 @@ function mp_por_cadeia($valor, $cadeias, $cores, $hex, $fmt = null, $sep = '<br>
             });
 
             // Adiciona modelo
-            $.get('<?php echo base_url('/data/' . $db . '/multipro/pdb/' . $id[0] . '/' . $id . '.pdb'); ?>', function(data) {
-                const m2 = glviewerModal.addModel(data, "pdb");
+            $.get('<?php echo base_url('/data/' . $db . '/multipro/pdb/' . $id[0] . '/' . $id . '.cif'); ?>', function(data) {
+                const m2 = glviewerModal.addModel(data, "cif");
                 glviewerModal.setBackgroundColor(0xffffff);
 
                 glviewerModal.setStyle({}, {
@@ -1481,11 +1481,11 @@ function mp_por_cadeia($valor, $cadeias, $cores, $hex, $fmt = null, $sep = '<br>
     let moldata = null;
 
     $(() => {
-        const pdb_data = "<?php echo base_url('/data/' . $db . '/multipro/pdb/' . $id[0] . '/' . $id . '.pdb'); ?>";
+        const pdb_data = "<?php echo base_url('/data/' . $db . '/multipro/pdb/' . $id[0] . '/' . $id . '.cif'); ?>";
 
         $.get(pdb_data, function(d) {
             const data = d;
-            moldata = d; // guarda o PDB para o viewer do mapa de contatos
+            moldata = d; // guarda a estrutura (mmCIF) para o viewer do mapa de contatos
             // Cria viewer
             glviewer = $3Dmol.createViewer("pdb", {
                 defaultcolors: $3Dmol.rasmolElementColors
@@ -1493,7 +1493,7 @@ function mp_por_cadeia($valor, $cadeias, $cores, $hex, $fmt = null, $sep = '<br>
             glviewer.setBackgroundColor(0xffffff);
 
             // Adiciona modelo
-            const m = glviewer.addModel(data, "pdb");
+            const m = glviewer.addModel(data, "cif");
 
             // Cores e cadeias
             const colors = ["grey", "orangered", "deepskyblue", "green", "purple", "cyan"];
@@ -1924,7 +1924,7 @@ function mp_por_cadeia($valor, $cadeias, $cores, $hex, $fmt = null, $sep = '<br>
         // Carrega o modelo assim que o PDB estiver disponivel (lazy: pode ainda
         // estar baixando na primeira abertura do modal)
         if (!modalViewer._modelLoaded && moldata) {
-            modalViewer.addModel(moldata, 'pdb');
+            modalViewer.addModel(moldata, 'cif');
             styleWhole(modalViewer);
             modalViewer.zoomTo();
             modalViewer.render();

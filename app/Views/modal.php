@@ -549,8 +549,11 @@
     }
 
     // ---- carga da estrutura ----
-    function carrega(texto, rotulo) {
-      if (!texto || texto.indexOf('ATOM') === -1) {
+    function carrega(texto, rotulo, formato) {
+      formato = formato || 'pdb'; // 'pdb' (RCSB/upload) ou 'cif' (estrutura da entrada)
+      // mmCIF traz 'ATOM'/'HETATM' na coluna group_PDB e o loop _atom_site;
+      // PDB traz registros ATOM/HETATM. Aceita ambos.
+      if (!texto || (texto.indexOf('ATOM') === -1 && texto.indexOf('_atom_site') === -1)) {
         aviso.textContent = 'Could not read coordinates from ' + rotulo + '.';
         return;
       }
@@ -568,7 +571,7 @@
       rotulos = [];
       superficies = [];
 
-      const modelo = viewer.addModel(texto, 'pdb');
+      const modelo = viewer.addModel(texto, formato);
       const atomos = modelo.selectedAtoms({});
 
       // cadeias, cores e numero de residuos de cada uma
@@ -722,7 +725,8 @@
       }
 
       if (dados.pdbText) {
-        carrega(dados.pdbText, dados.pdb || 'structure'); // estrutura ja em maos
+        // a estrutura vinda da pagina de entrada e mmCIF (data/<db>/pdb/*.cif)
+        carrega(dados.pdbText, dados.pdb || 'structure', 'cif'); // estrutura ja em maos
       } else if ((dados.pdb || '').length === 4) {
         carregaDoRcsb(dados.pdb);
       }
