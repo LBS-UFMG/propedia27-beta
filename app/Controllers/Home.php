@@ -68,7 +68,7 @@ class Home extends BaseController
     #   8 PISA_n_hbonds  9 PISA_n_saltbridges  10 BSA  11 BPP%
     #  12 RESOLUTION  13 STRUCTURE_METHOD  14 peptide_HydrophobicPercent
     #  15 peptide_PositiveResidues  16-21 AAP ABP ACP AIP QSP SBP
-    #  22 PISA_CSS  23 binding affinity  24 PISA_diss_energy
+    #  22 PISA_CSS  23 binding affinity  24 dissociation constant (Kd)
     private const EXPLORE_ARQUIVO = 'data/propedia26_v17.tsv';
     private const EXPLORE_COLUNAS_EXIBIDAS = 8;
     private const EXPLORE_CLASSES = ['AAP' => 16, 'ABP' => 17, 'ACP' => 18, 'AIP' => 19, 'QSP' => 20, 'SBP' => 21];
@@ -194,7 +194,7 @@ class Home extends BaseController
             'is_leader', 'leader_id', 'PISA_n_hbonds', 'PISA_n_saltbridges', 'BSA', 'BPP%',
             'RESOLUTION', 'STRUCTURE_METHOD', 'peptide_HydrophobicPercent', 'peptide_PositiveResidues',
             'AAP', 'ABP', 'ACP', 'AIP', 'QSP', 'SBP', 'PISA_CSS',
-            'predicted_binding_affinity', 'PISA_diss_energy',
+            'predicted_binding_affinity', 'predicted_dissociation_constant',
         ];
 
         $arquivo = FCPATH . self::EXPLORE_ARQUIVO;

@@ -184,23 +184,23 @@
             <tbody>
               <tr>
                 <th scope="row">Unique entries</th>
-                <td>38,218</td>
+                <td>40,371</td>
                 <td>0</td>
-                <td>38,218</td>
+                <td>40,371</td>
               </tr>
               <tr>
                 <th scope="row">Duplicated entries</th>
-                <td>35,174</td>
-                <td>19,759</td>
-                <td>54,933</td>
+                <td>41,790</td>
+                <td>22,406</td>
+                <td>64,196</td>
               </tr>
             </tbody>
             <tfoot class="table-light">
               <tr>
                 <th scope="row">Total</th>
-                <td>73,392</td>
-                <td>19,759</td>
-                <td><strong>93,151</strong></td>
+                <td>82,161</td>
+                <td>22,406</td>
+                <td><strong>104,567</strong></td>
               </tr>
             </tfoot>
           </table>
@@ -234,7 +234,7 @@
       <section id="expanded" class="docs-card">
         <h3><em>1.2.1 Expanded dataset</em></h3>
         <ul>
-          <li><b> Increased complex count: </b> The updated version of Propedia now includes 73,392 protein-peptide complexes, a 3.7-fold increase in data coverage compared to the previous release (19,813 complexes), as shown in figure 1. Together with the 19,759 multipro entries, the database holds 93,151 entries in total.</li>
+          <li><b> Increased complex count: </b> The updated version of Propedia now includes 82,161 protein-peptide complexes, a 4.1-fold increase in data coverage compared to the previous release (19,813 complexes), as shown in figure 1. Together with the 22,406 multipro entries, the database holds 104,567 entries in total.</li>
 
           <li><b> Updated PDB sources:</b> Includes structures from the Protein Data Bank collected in September 2025 (the most recent structure was deposited on 18 July 2025), ensuring researchers have access to the most recent structural data.</li>
         </ul>
@@ -1556,7 +1556,7 @@
 
           <ol>
             <li>
-              <strong>Redundancy detection by sequence combination:</strong> proteins and peptides have their sequences concatenated, allowing completely identical complexes to be identified. This resulted in 51,416 unique complexes across the protein-peptide and multipro sets (38,218 of them in the protein-peptide set).
+              <strong>Redundancy detection by sequence combination:</strong> proteins and peptides have their sequences concatenated, allowing completely identical complexes to be identified. This resulted in 54,190 unique complexes across the protein-peptide and multipro sets (40,371 of them in the protein-peptide set).
             </li>
             <li>
               <strong>Canonical Non-Redundant (CNR) dataset:</strong> from all peptides containing only canonical amino acids, 11,380 unique peptide sequences were extracted, forming the new set of non-redundant peptides (17,440 unique sequences when peptides with non-canonical residues are also counted).
