@@ -185,14 +185,14 @@
               <tr>
                 <th scope="row">Unique entries</th>
                 <td>40,371</td>
-                <td>0</td>
-                <td>40,371</td>
+                <td>13,819</td>
+                <td>54,190</td>
               </tr>
               <tr>
                 <th scope="row">Duplicated entries</th>
                 <td>41,790</td>
-                <td>22,406</td>
-                <td>64,196</td>
+                <td>8,587</td>
+                <td>50,377</td>
               </tr>
             </tbody>
             <tfoot class="table-light">
