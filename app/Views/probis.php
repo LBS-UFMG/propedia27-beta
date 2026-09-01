@@ -132,18 +132,48 @@ selected">
          });
       });
 
+      // Os dois viewers (Query e Subject) ficam ligados: girar, arrastar ou dar
+      // zoom em um aplica a mesma camera no outro. Quem faz isso e o proprio
+      // 3Dmol: linkViewer manda a view a cada render (ver linkedViewers em
+      // js/3dmol.js). A ligacao e feita uma vez so, quando os dois existirem.
+      let viewerQuery = null;
+      let viewerSubject = null;
+      let viewersLigados = false;
+
+      function ligaViewers() {
+         if (viewersLigados || !viewerQuery || !viewerSubject) {
+            return;
+         }
+         viewerQuery.linkViewer(viewerSubject);
+         viewerSubject.linkViewer(viewerQuery);
+         viewersLigados = true;
+
+         // Estado inicial: os dois partem do enquadramento do Query
+         viewerSubject.setView(viewerQuery.getView(), true);
+         viewerSubject.render();
+      }
+
       function load_subject(pdb_data2, residues, cadeia_pep) {
          
          $.get(pdb_data2, function(d) {
             const data = d;
-            // Cria viewer
-            glviewer = $3Dmol.createViewer("3Dmol_subject", {
-               defaultcolors: $3Dmol.rasmolElementColors
-            });
-            glviewer.setBackgroundColor(0xffffff);
+            // O viewer e criado uma vez so e reaproveitado nas trocas de subject:
+            // criar outro a cada clique empilharia canvas no mesmo div e deixaria
+            // a ligacao com o viewer do Query apontando para um viewer morto.
+            const primeiraCarga = !viewerSubject;
+            if (primeiraCarga) {
+               viewerSubject = $3Dmol.createViewer("3Dmol_subject", {
+                  defaultcolors: $3Dmol.rasmolElementColors
+               });
+               viewerSubject.setBackgroundColor(0xffffff);
+            } else {
+               viewerSubject.removeAllSurfaces();
+               viewerSubject.removeAllLabels();
+               viewerSubject.removeAllModels();
+            }
 
-            // Adiciona modelo (estrutura da entrada = mmCIF)
-            const m = glviewer.addModel(data, "cif");
+            // Adiciona modelo
+            const m = viewerSubject.addModel(data, "cif");   // subject = a db entry (mmCIF)
 
             // Cores e cadeias
             const colors = ["white", "orangered", "deepskyblue", "green", "purple", "cyan"];
@@ -188,13 +218,13 @@ selected">
                   const color = colors[i % colors.length];
 
                   if(chain == cadeia_pep){
-                     glviewer.setStyle({ chain: chain }, { line: { color: 'orangered' }, cartoon: { color: color } });
+                     viewerSubject.setStyle({ chain: chain }, { line: { color: 'orangered' }, cartoon: { color: color } });
                   }
                   else{
-                     glviewer.setStyle({ chain: chain }, { cartoon: { color: color } });
+                     viewerSubject.setStyle({ chain: chain }, { cartoon: { color: color } });
             
                      // residues_array deve ser um array de números
-                     glviewer.setStyle({
+                     viewerSubject.setStyle({
                         chain: chain,
                         resi: residues
                      }, {
@@ -205,7 +235,7 @@ selected">
                            color: 'green'
                         }
                      });
-                     glviewer.addSurface(
+                     viewerSubject.addSurface(
                         $3Dmol.SurfaceType.VDW, {
                            opacity: 0.7,
                            color: 'green'
@@ -227,9 +257,15 @@ selected">
                atom.clickable = true;
                atom.callback = atomcallback;
             }
-            glviewer.mapAtomProperties($3Dmol.applyPartialCharges);
-            glviewer.zoomTo();
-            glviewer.render();
+            viewerSubject.mapAtomProperties($3Dmol.applyPartialCharges);
+            // Nas trocas de subject a camera atual e mantida, senao o zoomTo
+            // seria propagado para o viewer do Query e mexeria nele tambem
+            if (primeiraCarga) {
+               viewerSubject.zoomTo();
+            }
+            viewerSubject.render();
+
+            ligaViewers();
          });
       }
 
@@ -243,13 +279,13 @@ selected">
       $.get(pdb_data, function(d) {
          const data = d;
          // Cria viewer
-         glviewer = $3Dmol.createViewer("3Dmol_query", {
+         viewerQuery = $3Dmol.createViewer("3Dmol_query", {
             defaultcolors: $3Dmol.rasmolElementColors
          });
-         glviewer.setBackgroundColor(0xffffff);
+         viewerQuery.setBackgroundColor(0xffffff);
 
          // Adiciona modelo
-         const m = glviewer.addModel(data, "pqr");
+         const m = viewerQuery.addModel(data, "pqr");
 
          // Cores e cadeias
          const colors = ["white"];
@@ -294,14 +330,14 @@ selected">
                const color = colors[i % colors.length];
 
                // Estilo padrão cartoon + superfície
-               glviewer.setStyle({
+               viewerQuery.setStyle({
                   chain: chain
                }, {
                   cartoon: {
                      color: color
                   }
                });
-               glviewer.addSurface($3Dmol.SurfaceType.VDW, {
+               viewerQuery.addSurface($3Dmol.SurfaceType.VDW, {
                   opacity: opacity,
                   color: color
                }, {
@@ -311,7 +347,7 @@ selected">
                // Se for a cadeia que queremos destacar os resíduos
                if (chain === chain_query) {
                   // residues_array deve ser um array de números
-                  glviewer.setStyle({
+                  viewerQuery.setStyle({
                      chain: chain_query,
                      resi: residues_array
                   }, {
@@ -322,7 +358,7 @@ selected">
                         color: 'green'
                      }
                   });
-                  glviewer.addSurface(
+                  viewerQuery.addSurface(
                      $3Dmol.SurfaceType.VDW, {
                         opacity: 0.7,
                         color: 'green'
@@ -334,7 +370,7 @@ selected">
                }
             });
 
-            glviewer.render();
+            viewerQuery.render();
          }
 
          // Cria superfícies iniciais usando o valor atual do slider (fallback 0)
@@ -349,9 +385,11 @@ selected">
             atom.callback = atomcallback;
          }
 
-         glviewer.mapAtomProperties($3Dmol.applyPartialCharges);
-         glviewer.zoomTo();
-         glviewer.render();
+         viewerQuery.mapAtomProperties($3Dmol.applyPartialCharges);
+         viewerQuery.zoomTo();
+         viewerQuery.render();
+
+         ligaViewers();
       });
 
       const atomcallback = function(atom, viewer) {

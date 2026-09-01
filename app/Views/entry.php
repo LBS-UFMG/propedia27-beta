@@ -528,6 +528,24 @@
                         $info[94] = '<span class="badge bg-danger">weak</span>';
                     }
 
+                    // O arquivo resumido guarda o CSS com 6 casas, para nao
+                    // confundir zero com valores muito pequenos mas reais (o
+                    // menor CSS nao nulo da base e 2e-06). Na tela mostra 3
+                    // casas, mas sem deixar o arredondamento atravessar as
+                    // fronteiras de classe (0 e 0.5): senao o valor exibido
+                    // contradiria o badge acima.
+                    if ($css_valor !== '') {
+                        $css_numero   = (float) $css_valor;
+                        $css_arredond = number_format($css_numero, 3, '.', '');
+                        if ($css_numero > 0 && (float) $css_arredond == 0) {
+                            $info[93] = '< 0.001';       # nao e zero, mas arredonda para zero
+                        } elseif ($css_numero < 0.5 && (float) $css_arredond >= 0.5) {
+                            $info[93] = '< 0.500';       # nao e strong, mas arredonda para 0.500
+                        } else {
+                            $info[93] = $css_arredond;
+                        }
+                    }
+
                     // [rotulo, texto de ajuda, indice no CSV], agrupados por tipo de medida
                     $pisa_grupos = [
                         ['Interface significance', [

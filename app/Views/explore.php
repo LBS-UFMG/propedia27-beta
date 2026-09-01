@@ -439,10 +439,10 @@
                 <label class="form-label mb-1" for="interfaceEvidence">Interface evidence <a class="badge bg-secondary" href="#" data-bs-placement="top" data-bs-toggle="tooltip" data-bs-title="PISA Complexation Significance Score (CSS), which measures how much the interface contributes to the assembly: strong = 0.5 or above (the interface sustains the assembly), moderate = between 0 and 0.5, weak = 0 (no role in the assembly). PISA computes it only for diffraction structures, so entries solved by electron microscopy, NMR and other methods appear as not assessed.">?</a></label>
                 <select class="form-select form-select-sm" id="interfaceEvidence">
                     <option value="">All</option>
-                    <option value="strong">Strong – CSS ≥ 0.5 (15,911)</option>
-                    <option value="moderate">Moderate – 0 &lt; CSS &lt; 0.5 (17,967)</option>
-                    <option value="weak">Weak – CSS = 0 (9,789)</option>
-                    <option value="not_assessed">Not assessed (29,725)</option>
+                    <option value="strong">Strong – CSS ≥ 0.5</option>
+                    <option value="moderate">Moderate – 0 &lt; CSS &lt; 0.5</option>
+                    <option value="weak">Weak – CSS = 0</option>
+                    <option value="not_assessed">Not assessed</option>
                 </select>
             </div>
             <div class="col-6 col-md-4 col-lg-3 col-xl-2">
